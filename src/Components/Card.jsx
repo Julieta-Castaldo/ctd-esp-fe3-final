@@ -1,4 +1,5 @@
 import React from "react";
+import './Card.css';
 
 
 const Card = ({user}) => {
@@ -9,15 +10,18 @@ const Card = ({user}) => {
   
   return (
     <div className="card"> 
+        <img src = "../images/doctor.jpg" alt="Doctor image" />
         <p>{name}</p>
         <p>{username}</p>
-        <p>{id}</p>
+        <p>ID {id}</p>
         {/* En cada card deberan mostrar en name - username y el id */}
 
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+        <button onClick={addFav} className="favButton">
+         
+          </button>
     </div>
   );
 };
