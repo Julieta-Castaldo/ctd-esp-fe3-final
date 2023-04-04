@@ -1,0 +1,22 @@
+footer {
+    background-color: black;
+    display: flex;
+    text-align: end;
+}
+
+footer img {
+    background-color: white;
+  
+}
+
+.socialMedia{
+    width: 3%;
+    background-color: black;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.socialMedia:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
