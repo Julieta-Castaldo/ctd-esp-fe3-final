@@ -39,3 +39,13 @@
     0 0  0 1px rgb(255,255,255),
     0.3em 0.3em 1em rgba(0,0,0,0.1);
   }
+
+.card button {
+    background-image: url(../images/starfav.png);
+    background-repeat: no-repeat;
+    height:40px;
+    width:100%;
+    background-size: 30px 30px;
+    background-position:center;
+  
+} 
