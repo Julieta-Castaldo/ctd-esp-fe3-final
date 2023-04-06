@@ -41,13 +41,9 @@
   }
 
 .card button {
-    background-image: url(../images/starfav.png);
-    background-repeat: no-repeat;
     height:40px;
-    width:100%;
-    background-size: 30px 30px;
-    background-position:center;
-  
+    width: 40px;
+    text-align: center;
 } 
 
 .content-card {

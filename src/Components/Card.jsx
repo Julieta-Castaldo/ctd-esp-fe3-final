@@ -5,10 +5,14 @@ import { useUsersState } from "../Context/Context";
 
 const Card = ({ user }) => {
   const { name, username, id } = user;
-  const {themeState} = useUsersState()
+  const {themeState, favsState, favsDispatch} = useUsersState()
 
-  const addFav = () => {
-    // Aqui iria la logica para agregar la Card en el localStorage
+  const handleFavs = () => {
+    if(favsState.includes(user)){
+      favsDispatch({type: 'REMOVE_FAV', payload: user})
+    } else {
+      favsDispatch({type: 'ADD_FAV', payload: user})
+    }
   }
   
   return (
@@ -26,7 +30,7 @@ const Card = ({ user }) => {
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
       </Link>
-      <button onClick={addFav} className="favButton"></button>
+      <button onClick={handleFavs}>{favsState.includes(user)? '❌' : '⭐' }</button>
     </div>
   );
 };

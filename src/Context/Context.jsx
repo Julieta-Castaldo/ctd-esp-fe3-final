@@ -31,14 +31,26 @@ const Context = ({ children }) => {
             case 'SWITCH_LIGHT':
                 return themes.light
             default:
-                throw new Error
+                throw new Error();
+        }
+    }
+
+    const favsReducer = (state, action) => {
+        switch(action.type){
+            case 'ADD_FAV':
+                return [ ...state, action.payload ];
+            case 'REMOVE_FAV':
+                return state.filter(user => user !== action.payload)
+            default:
+                throw new Error();
         }
     }
 
     const [users, setUsers] = useState([])
     const url = 'https://jsonplaceholder.typicode.com/users';
     const [themeState, themeDispatch] = useReducer(themeReducer, initialThemeState)
-    
+    const initialValueFavs = JSON.parse(localStorage.getItem('favs')) || []
+    const [favsState, favsDispatch] = useReducer(favsReducer, initialValueFavs)
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -49,8 +61,12 @@ const Context = ({ children }) => {
         fetchUsers()
     }, [])
 
+    useEffect(() => {
+        localStorage.setItem('favs', JSON.stringify(favsState))
+    }, [favsState])
+
     return (
-        <UsersState.Provider value={{ users, setUsers, themeState, themeDispatch }}>
+        <UsersState.Provider value={{ users, setUsers, themeState, themeDispatch, favsState, favsDispatch }}>
             {children}
         </UsersState.Provider>
     )
