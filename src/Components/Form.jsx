@@ -17,7 +17,7 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(user.name.length >= 5 && user.lastName.length >= 5 && regex.test(user.email)){
+    if((user.name.length + user.lastName.length) >= 5 && user.name.length !== 0 && user.lastName.length !== 0 && regex.test(user.email)){
       setValid(true)
       setError(false)
     } else {
