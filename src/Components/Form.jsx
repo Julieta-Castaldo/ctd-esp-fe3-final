@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
 
+  const [user, setUser] = useState({
+    name:'',
+    lastName:'',
+    email: ''
+  })
+
+  const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+  
+  const [valid, setValid] = useState(false)
+  const [error, setError] = useState(false)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if(user.name.length >= 5 && user.lastName.length >= 5 && regex.test(user.email)){
+      setValid(true)
+      setError(false)
+    } else {
+      setValid(false)
+      setError(true)
+    }
+}
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
+      <input type="text" placeholder='Ingrese su nombre' value={user.name} onChange={(e) => setUser({...user, name: e.target.value})}/> 
+          <input type="text" placeholder='Ingrese su apellido' value={user.apellido} onChange={(e) => setUser({...user, lastName: e.target.value})}/>  
+          <input type="text" placeholder='Ingrese su email' value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/> 
+          <button>Enviar</button>
       </form>
+
+      {error ? <p className='error'>Por favor verifique su información nuevamente </p> : null }
+      {valid && <p>Gracias {user.name}, te contactaremos cuando antes vía mail</p>}
+
     </div>
   );
 };
