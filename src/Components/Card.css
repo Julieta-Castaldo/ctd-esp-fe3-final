@@ -49,3 +49,8 @@
     background-position:center;
   
 } 
+
+.content-card {
+    width: 100%;
+    text-align: center;
+}

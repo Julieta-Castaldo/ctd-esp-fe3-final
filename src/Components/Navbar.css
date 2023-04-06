@@ -2,7 +2,7 @@ nav {
     background-color: rgba(223, 202, 213, 0.15);
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
     height: 8vh;
     padding: 1.5rem;
 }
