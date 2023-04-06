@@ -34,7 +34,7 @@ nav div h3 {
     font-weight: 200;
 }
 
-button {
+.themeButton {
     margin-left: 2rem;
     height: 30px;
     font-size: 20px;
