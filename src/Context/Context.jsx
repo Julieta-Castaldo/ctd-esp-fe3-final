@@ -44,7 +44,6 @@ const Context = ({ children }) => {
         const fetchUsers = async () => {
             let res = await fetch(url)
             let data = await res.json()
-            console.log(data)
             setUsers(data)
         }
         fetchUsers()
