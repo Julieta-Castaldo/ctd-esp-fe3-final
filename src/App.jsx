@@ -5,10 +5,13 @@ import Home from './Routes/Home';
 import Contact from './Routes/Contact';
 import Favs from './Routes/Favs';
 import Detail from './Routes/Detail';
+import { useUsersState } from "./Context/Context";
 
 function App() {
+  const {themeState} = useUsersState()
+
   return (
-      <div className="App">
+      <div className="App" style={{backgroundColor: themeState.bgColor, color: themeState.color}}>
           <Navbar/>
           <Routes>
             <Route path='/home' element={<Home/>}/>
