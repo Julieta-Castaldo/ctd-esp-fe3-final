@@ -14,7 +14,7 @@ function App() {
       <div className="App" style={{backgroundColor: themeState.bgColor, color: themeState.color}}>
           <Navbar/>
           <Routes>
-            <Route path='/home' element={<Home/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/dentist/:id' element={<Detail/>}/>
             <Route path='/favs' element={<Favs/>}/>

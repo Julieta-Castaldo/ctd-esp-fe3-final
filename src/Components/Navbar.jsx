@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav style={{ backgroundColor: themeState.navColor }}>
       <span>DH Odonto</span>
       <div>
-        <Link to='/home'>
+        <Link to='/'>
           <h3 style={{ color: themeState.color }}>Home</h3>
         </Link>
         <Link to='/contact'>
