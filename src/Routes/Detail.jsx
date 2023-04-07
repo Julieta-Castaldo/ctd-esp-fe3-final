@@ -4,18 +4,19 @@ import { useParams } from 'react-router-dom';
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
- 
+
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   const [users, setUsers] = useState({})
-  const {id} = useParams()
-  const url = 'https://jsonplaceholder.typicode.com/users' + id;
+  const { id } = useParams()
+  const url = `https://jsonplaceholder.typicode.com/users/` + id.replace(':', '');
 
   useEffect(() => {
     fetch(url)
-        .then(res => res.json())
-        .then(data => setUsers(data))
-  }, [])
+      .then(res => res.json())
+      .then(data => setUsers(data))
+
+  }, [id])
 
   return (
     <>
@@ -30,10 +31,10 @@ const Detail = () => {
           <td>Website</td>
         </tr>
         <tr className='tableData'>
-          <td>dato nombre</td> 
-          <td>dato email</td>
-          <td>dato tel</td>
-          <td> dato Website</td>
+          <td>{users && users.name}</td>
+          <td>{users && users.email}</td>
+          <td>{users && users.phone}</td>
+          <td>{users && users.website}</td>
         </tr>
       </table>
 
